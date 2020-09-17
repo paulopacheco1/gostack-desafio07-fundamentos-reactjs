@@ -7,6 +7,4 @@ export const formatValue = (value = 0, currency = 'BRL'): string => {
     .replace('$', '$ ');
 };
 
-export const formatDate = (date: Date): string => {
-  return Intl.DateTimeFormat('pt-BR').format(date);
-};
+export default formatValue;
