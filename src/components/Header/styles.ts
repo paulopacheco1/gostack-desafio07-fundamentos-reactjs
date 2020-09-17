@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+  location: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -22,6 +23,7 @@ export const Container = styled.div<ContainerProps>`
         text-decoration: none;
         font-size: 16px;
         transition: opacity 0.2s;
+        padding-bottom: 10px;
 
         & + a {
           margin-left: 32px;
@@ -29,6 +31,29 @@ export const Container = styled.div<ContainerProps>`
 
         &:hover {
           opacity: 0.6;
+        }
+
+        &.dash {
+          ${({ location }) =>
+            location === '/' &&
+            css`
+              border-bottom: 3px solid #ff872c;
+              cursor: default;
+              &:hover {
+                opacity: 1;
+              }
+            `};
+        }
+        &.import {
+          ${({ location }) =>
+            location === '/import' &&
+            css`
+              border-bottom: 3px solid #ff872c;
+              cursor: default;
+              &:hover {
+                opacity: 1;
+              }
+            `};
         }
       }
     }
