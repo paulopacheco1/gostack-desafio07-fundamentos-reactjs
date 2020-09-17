@@ -17,10 +17,21 @@ export const Title = styled.h1`
 `;
 
 export const CardContainer = styled.section`
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 32px;
   margin-top: -150px;
+
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Card = styled.div`
@@ -28,6 +39,7 @@ export const Card = styled.div`
   padding: 22px 32px;
   border-radius: 5px;
   color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
+  min-width: 300px;
 
   header {
     display: flex;
@@ -81,6 +93,10 @@ export const TableContainer = styled.section`
 
       &.outcome {
         color: #e83f5b;
+
+        &::before {
+          content: '- ';
+        }
       }
     }
 
